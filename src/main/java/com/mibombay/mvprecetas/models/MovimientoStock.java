@@ -58,8 +58,8 @@ public class MovimientoStock {
     @ManyToOne
     @JoinColumn(name = "usuario_id", nullable = false)
     private Usuario usuario; // Quién hizo el movimiento
-
     @ManyToOne
+
     @JoinColumn(name = "empresa_id", nullable = false)
     private Empresa empresa;
 }
