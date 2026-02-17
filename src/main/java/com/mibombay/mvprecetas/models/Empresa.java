@@ -46,4 +46,30 @@ public class Empresa {
     @OneToMany(mappedBy = "empresa")
     private List<Usuario> usuarios = new ArrayList<>();
 
+    @OneToMany(mappedBy = "empresa")
+    private List<Ingrediente> listaIngredientes = new ArrayList<>();
+
+    @OneToMany(mappedBy = "empresa")
+    private List<DetalleReceta> listaDetalleRecetas = new ArrayList<>();
+
+    @OneToMany(mappedBy = "empresa")
+    private List<Receta> recetas = new ArrayList<>();
+
+    @OneToMany(mappedBy = "empresa")
+    private List<Producto> productos = new ArrayList<>();
+
+    @OneToMany(mappedBy = "empresa")
+    private List<Venta> ventas = new ArrayList<>();
+
+    @OneToMany(mappedBy = "empresa")
+    private List<DetalleVenta> detallesVenta = new ArrayList<>();
+
+    @OneToMany(mappedBy = "empresa")
+    private List<Compra> compras = new ArrayList<>();
+
+    @OneToMany(mappedBy = "empresa")
+    private List<DetalleCompra> detalleCompras = new ArrayList<>();
+
+    @OneToMany(mappedBy = "empresa")
+    private List<Cliente> clientes = new ArrayList<>();
 }
