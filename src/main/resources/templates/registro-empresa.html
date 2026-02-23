@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registra tu empresa - mibombay.com</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+    <div class="container">
+        <div class="row justify-content-center min-vh-100 align-items-center">
+            <div class="col-md-6">
+                <div class="card shadow">
+                    <div class="card-body p-5">
+                        <h2 class="text-center mb-4">🍽️ Crea tu empresa</h2>
+                        <p class="text-center text-secondary mb-4">Tu propio espacio en <strong>tunegocio.mibombay.com</strong></p>
+                        
+                        <!-- MOSTRAR ERROR SI EXISTE -->
+                        <div th:if="${error}" class="alert alert-danger" th:text="${error}"></div>
+                        
+                        <form th:action="@{/registro}" method="post" th:object="${registroDTO}">
+                            
+                            <div class="mb-3">
+                                <label class="form-label">Nombre de tu empresa</label>
+                                <input type="text" th:field="*{nombreEmpresa}" class="form-control form-control-lg" required>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="form-label">Subdominio deseado</label>
+                                <div class="input-group">
+                                    <input type="text" th:field="*{subdominio}" class="form-control form-control-lg" required 
+                                           pattern="[a-z0-9]+" title="Solo minúsculas y números, sin espacios">
+                                    <span class="input-group-text bg-dark text-white">.mibombay.com</span>
+                                </div>
+                                <div class="form-text">Ej: mibar, mipizza, micafe (solo minúsculas y números)</div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="form-label">Email de la empresa</label>
+                                <input type="email" th:field="*{email}" class="form-control form-control-lg" required>
+                                <div class="form-text">Este será tu usuario para iniciar sesión</div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="form-label">Tu nombre (Administrador)</label>
+                                <input type="text" th:field="*{nombreAdmin}" class="form-control form-control-lg" required>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label class="form-label">Contraseña</label>
+                                <input type="password" th:field="*{password}" class="form-control form-control-lg" required>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-warning btn-lg w-100">Crear mi empresa</button>
+                        </form>
+                        
+                        <div class="text-center mt-4">
+                            <a href="/" class="text-decoration-none">← Volver</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,7 +1,5 @@
 package com.mibombay.mvprecetas.models;
 
-import java.util.List;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -39,6 +37,5 @@ public class DetalleReceta {
     @ManyToOne
     @JoinColumn(name = "empresa_id", nullable = false)
     private Empresa empresa;
-    
 
 }

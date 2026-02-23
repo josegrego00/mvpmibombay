@@ -31,7 +31,7 @@ public class Producto {
     private Boolean estaActivo;
     private Boolean tieneReceta;
 
-    @OneToOne(mappedBy = "producto", cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "producto")
     private Receta receta;
 
     @ManyToOne

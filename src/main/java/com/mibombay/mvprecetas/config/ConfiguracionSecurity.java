@@ -17,15 +17,14 @@ public class ConfiguracionSecurity {
                 return new BCryptPasswordEncoder();
         }
 
-
         // Configuración de seguridad HTTP
         // nada de esto aun es correcto... tengo q acomodarlo mañana..
         @Bean
         public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
                 http
                                 .authorizeHttpRequests(authz -> authz
-                                                .requestMatchers("/public/**", "/registro", "/login").permitAll()
-                                                .requestMatchers("/admin/**").hasRole("ADMIN")
+                                                .requestMatchers("/login").permitAll()
+                                                .requestMatchers("/reguistro").permitAll()
                                                 .anyRequest().authenticated())
                                 .formLogin(form -> form
                                                 .loginPage("/login")
